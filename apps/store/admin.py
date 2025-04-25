@@ -15,7 +15,7 @@ from .models import (
     PurchaseOrder,
     PurchaseOrderItem,
     Invoice,
-    InvoiceItem,
+    InvoiceItem
 )
 
 

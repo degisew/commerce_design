@@ -114,7 +114,7 @@ class PurchaseOrder(AbstractBaseModel):
 
     def save(self, *args, **kwargs) -> None:
 
-        # Auto-generate the purchase order unique code if it's not already provided
+        # * Auto-generate the purchase order unique code
         if not self.order_code:
             self.order_code = generate_unique_code("PUR_ORD", self.id)
 
@@ -203,14 +203,13 @@ class Invoice(AbstractBaseModel):
         db_table: str = "invoices"
 
     def save(self, *args, **kwargs):
-
-        # Auto-generate the invoice code if it's not already provided
+        # * Auto-generate the invoice code
         if not self.invoice_code:
             self.invoice_code = generate_unique_code("INV", self.id)
 
         super().save(*args, **kwargs)
 
-    def calculate_total(self):
+    def calculate_total(self) -> int:
         return sum([item.unit_price for item in self.invoice_items.all()])
 
     def __str__(self) -> str:

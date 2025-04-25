@@ -21,8 +21,6 @@ from django.conf.urls.static import static
 
 
 api_v1_patterns = [
-    # path("account/", include("apps.account.urls")),
-    # path("core/", include("apps.core.urls")),
     path("store/", include("apps.store.urls"))
 ]
 
