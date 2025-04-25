@@ -210,6 +210,9 @@ class Invoice(AbstractBaseModel):
 
         super().save(*args, **kwargs)
 
+    def calculate_total(self):
+        return sum([item.unit_price for item in self.invoice_items.all()])
+
     def __str__(self) -> str:
         return f"Invoice-{self.invoice_code} - {self.customer.email}"
 
@@ -227,7 +230,7 @@ class InvoiceItem(AbstractBaseModel):
 
     invoice = models.ForeignKey(
         Invoice,
-        related_name="line_items",
+        related_name="invoice_items",
         on_delete=models.CASCADE,
         verbose_name=_("Invoice"),
     )
