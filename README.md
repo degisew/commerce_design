@@ -59,14 +59,14 @@ This command will build and run the containers for:
 Once you're logged in to pgAdmin4, follow these steps to add the PostgreSQL server:
 
 1. Click on "Add New Server".
-2. Under the **General** tab, set a name for the server (e.g., `drf_template DB`).
+2. Under the **General** tab, set a name for the server (e.g., `commerce_design DB`).
 3. Under the **Connection** tab, enter the following details:
    - **Host**: `db` (this is the service name defined in the `docker-compose.yml` file)
    - **Port**: `5432`
    - **Username**: `POSTGRES_USER` from the `.env` file (e.g., `XgkJUcqxEw`)
    - **Password**: `POSTGRES_PASSWORD` from the `.env` file
 
-Click **Save** to add the server, and you should now be able to manage the `drf_template` database from pgAdmin.
+Click **Save** to add the server, and you should now be able to manage the `commerce_design` database from pgAdmin.
 
 ## Project Structure
 
@@ -133,7 +133,7 @@ Here are some helpful commands to manage the Docker environment:
 
 The `docker-compose.yml` file defines two Docker volumes:
 
-- `drf_template_dev_db_data`: Stores the PostgreSQL database data.
-- `drf_template_dev_pgadmin_data`: Stores pgAdmin4 configuration data.
+- `commerce_design_dev_db_data`: Stores the PostgreSQL database data.
+- `commerce_design_dev_pgadmin_data`: Stores pgAdmin4 configuration data.
 
 These volumes ensure that your data persists across container restarts.

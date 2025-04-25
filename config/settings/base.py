@@ -10,12 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-# import csv
 import os
 import environ
 from pathlib import Path
-from datetime import timedelta
-from django.utils.translation import gettext_lazy as _
+
 
 env = environ.Env()
 
@@ -33,8 +31,6 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-
-ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=["*"])
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -62,7 +58,8 @@ THIRD_PARTY_APPS = []
 
 CUSTOM_APPS = [
     'apps.core',
-    'apps.account'
+    'apps.account',
+    'apps.store'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -158,19 +155,6 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 DATALOOKUP_MODEL = "core.DataLookup"
 
-
-# SIMPLE_JWT = {
-#     "AUTH_TOKEN_CLASSES": ["rest_framework_simplejwt.tokens.AccessToken"],
-#     "ACCESS_TOKEN_LIFETIME": (
-#         timedelta(hours=1) if not DEBUG else timedelta(days=30)
-#     ),
-#     "REFRESH_TOKEN_LIFETIME": (
-#         timedelta(days=1) if not DEBUG else timedelta(days=30)
-#     ),
-#     "USER_ID_FIELD": "id",
-#     "TOKEN_REFRESH_SERIALIZER": "authn.serializers.TokenRefreshSerializer",
-#     "ROTATE_REFRESH_TOKENS": True,
-# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
