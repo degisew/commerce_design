@@ -1,0 +1,9 @@
+-r base.txt
+
+pytest==8.3.5
+pytest-cov==6.1.1
+pytest-django==4.11.1
+coverage==7.8.0
+faker==37.1.0 
+tzdata==2025.2
+factory-boy==3.3.3
