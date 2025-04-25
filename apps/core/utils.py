@@ -2,10 +2,6 @@ from datetime import datetime
 import hashlib
 
 
-def generate_password(full_name):
-    return "".join([full_name, "@1234"])
-
-
 def generate_unique_code(
     prefix, unique_identifier, include_timestamp=True, length=8
 ) -> str:

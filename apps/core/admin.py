@@ -2,7 +2,7 @@ from django.contrib import admin
 from environ import Env
 from django.utils.translation import gettext_lazy as _
 
-from apps.core.models import DataLookup, SystemSetting
+from apps.core.models import DataLookup
 
 env = Env()
 
@@ -20,7 +20,6 @@ class DataLookupAdmin(admin.ModelAdmin):
                     "value",
                     "category",
                     "is_default",
-                    "note",
                     "index",
                 ),
             },
@@ -38,7 +37,6 @@ class DataLookupAdmin(admin.ModelAdmin):
                     "value",
                     "category",
                     "is_default",
-                    "note",
                     "index",
                 )
             },
@@ -47,9 +45,7 @@ class DataLookupAdmin(admin.ModelAdmin):
             _("Actions"),
             {
                 "classes": ("collapse",),
-                "fields": (
-                    "remark",
-                ),
+                "fields": ("remark",),
             },
         ),
     )
@@ -70,9 +66,6 @@ class DataLookupAdmin(admin.ModelAdmin):
         "type",
         "category",
     )
-
-
-admin.site.register(SystemSetting)
 
 
 admin.site.site_title = _(env("APP_TITLE", cast=str))

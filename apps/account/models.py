@@ -30,14 +30,14 @@ class User(AbstractUser, AbstractBaseModel):
         Role, null=True, blank=True, on_delete=models.RESTRICT, related_name="+"
     )
 
-    # state = models.ForeignKey(
-    #     DataLookup,
-    #     on_delete=models.RESTRICT,
-    #     null=True,
-    #     blank=True,
-    #     related_name="+",
-    #     limit_choices_to={"type": "account_state_type"},
-    # )
+    state = models.ForeignKey(
+        DataLookup,
+        on_delete=models.RESTRICT,
+        null=True,
+        blank=True,
+        related_name="+",
+        limit_choices_to={"type": "account_state_type"},
+    )
 
     username = None
     first_name = None
@@ -49,10 +49,10 @@ class User(AbstractUser, AbstractBaseModel):
     objects = UserManager()
 
     class Meta:
-        verbose_name = _("user")
-        verbose_name_plural = _("users")
+        verbose_name: str = _("user")
+        verbose_name_plural: str = _("users")
         ordering = ("-created_at",)
-        db_table = "users"
+        db_table: str = "users"
 
     def __str__(self) -> str:
         return self.email
